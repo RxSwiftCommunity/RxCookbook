@@ -19,3 +19,7 @@ Request straight away. <br />
 
 You can also join [RxSwift slack](http://rxswift-slack.herokuapp.com/) and join
 the `#cookbook` channel.
+
+## License
+Creative Commons Attribution 4.0 International (CC-BY-4.0). More
+[here](License.md).
