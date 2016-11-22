@@ -13,3 +13,9 @@ it. But if you want to know why you should use `disposeBag` or when you can use
 different method of disposing - this is what FAQ should be responsible for.
 
 ## Contributing
+🎉 If you have something to share with the world - just make a Pull
+Request straight away.
+🤔 If you have a question - please create an Issue.
+
+You can also join RxSwift [slack](http://rxswift-slack.herokuapp.com/) and join
+the `#cookbook` channel.
