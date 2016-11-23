@@ -69,17 +69,15 @@ This one retries the whole sequence whenever error happens. It has one advantage
 **_Warnings:_**
 👮 This is really dangerous and you have to be careful when using it - one mistake and you can create infinity loop in your app. (Because it retries until there is a success)
 
-<br />
 ```swift
 .retry(_:)
 ```
 This one is probably the most popular. It takes a parameter which indicates how many times **_in total_** the sequence will proceed in case of an error.
 
 **_Warnings:_**
-👮 `retry(1)` does basically nothing. If you encounter an error and want it to retry once, then you must use `retry(2)`.
+👮 `retry(1)` does basically nothing. If you encounter an error and want it to retry once, then you must use `retry(2)`.<br />
 👮 When you use this form of `retry(n)`, you must take into account that even after `n-1` retries error can happen. You might have to protect yourself e.g. using [catching](#1-catching-errors).
 
-<br />
 ```swift
 .retryWhen(_:)
 ```
