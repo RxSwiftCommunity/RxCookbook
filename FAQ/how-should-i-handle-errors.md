@@ -66,7 +66,7 @@ Whenever error happens in a sequence you can also use `retry` operators. They ba
 ```
 This one retries the whole sequence whenever error happens. It has one advantage: you probably don't have to worry about errors (at least from this sequence).
 
-**_Warnings:_**
+**_Warnings:_**<br />
 👮 This is really dangerous and you have to be careful when using it - one mistake and you can create infinity loop in your app. (Because it retries until there is a success)
 
 ```swift
@@ -74,7 +74,7 @@ This one retries the whole sequence whenever error happens. It has one advantage
 ```
 This one is probably the most popular. It takes a parameter which indicates how many times **_in total_** the sequence will proceed in case of an error.
 
-**_Warnings:_**
+**_Warnings:_**<br />
 👮 `retry(1)` does basically nothing. If you encounter an error and want it to retry once, then you must use `retry(2)`.<br />
 👮 When you use this form of `retry(n)`, you must take into account that even after `n-1` retries error can happen. You might have to protect yourself e.g. using [catching](#1-catching-errors).
 
@@ -108,9 +108,9 @@ refreshTableViewObservable
     ...
 ```
 
-Quick explanation. The parameter in `retryWhen` is an observable sequence of `Error` type. Now when we return the sequence, when a new item in this sequence is produced, the original sequence is started once again. When the error sequence completes/errors out, the original sequence will complete/error out as well. So we complete after 2 `URLError` errors or we throw an error whenever different error comes. This means: either you retry maximum 2 times when `URLError` comes or just propagate the error down below.
+Quick explanation. The parameter in `retryWhen` is an observable sequence of `Error` type. Now when we return the sequence and a new item in this sequence is produced, the original sequence is started once again. When the error sequence completes/errors out, the original sequence will complete/error out as well. So we complete our error sequence after 2 `URLError` errors or we throw an error whenever different error comes. This means: either you retry maximum 2 times when `URLError` comes or just propagate the error down below.
 
-**_Warnings:_**
+**_Warnings:_**<br />
 👮 The same as before (with `retry(_:)`), remember that error can happen after the `retryWhen(_:)` block and you should protect yourself as well.
 
 ## 3. Driver
